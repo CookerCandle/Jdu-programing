@@ -1,0 +1,4 @@
+1 ) Brendan Eyx tomonidan 1996 yil 18 iyul
+2 ) javascript ni birinchi ismi Mocha dastlab livescript bolgan
+3 ) dinamik saytlar yasasa boldai
+4 ) javascript browser da ishga tushadi
