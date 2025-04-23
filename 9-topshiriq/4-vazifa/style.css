@@ -1,0 +1,43 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+.container {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    gap: 8px;
+    padding: 5px;
+    margin: 5% 30% 0 30%;
+    background-color: rgb(20, 20, 20);
+}
+.container > div {
+    padding: 40px;
+    border: solid 1px white;
+    border-radius: 8px;
+}
+.i1 {
+    background-color: green;
+    grid-column: 1 / 6;
+}
+.i2 {
+    background-color: yellow;
+    grid-column: 1 / 4;
+}
+.i3 {
+    background-color: aqua;
+    grid-column: 4 / 6;
+}
+.i4 {
+    background-color: rgb(64, 62, 62);
+    grid-column: 4 / 6;
+}
+.i5 {
+    background-color: purple;
+    grid-column: 1 / 4;
+    grid-row: 3 / 6;
+}
+.i6{background-color: blue;}
+.i7{background-color: orangered;}
+.i8{background-color: gray;}
+.i9{background-color: red;}
