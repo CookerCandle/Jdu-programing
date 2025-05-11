@@ -1,9 +1,13 @@
 function tubSon(son) {
-    if (son > 0 && son != 1 && son % 2 != 0 || son == 2) {
-        console.log("tub son");
-    }else {
-        console.log("tub son emas");
+    if (son <= 1) return false;
+
+    for (let i = 2; i <= Math.sqrt(son); i++) {
+        if (son % i === 0) {
+        return false; 
+        }
     }
+
+    return true;
 }
 
-tubSon(4)
+console.log(tubSon(2));
