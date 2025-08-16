@@ -1,5 +1,9 @@
 main.py
+creator.py
 index.html
 
 vscode/
 __pycache__/
+
+.vscode/
+.vs
