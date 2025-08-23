@@ -1,0 +1,7 @@
+Frontend:
+Frontend - foydalanuvchi interfeysi ya’ni brauzerda ko‘rinadigan qism.
+Misol - Online do‘konda mahsulotlarni ko‘rish
+
+Backend:
+Backend - server tarafdagi logika va ma’lumotlar bazasi bilan ishlash.
+Misol - Siz saytda login qilganda, backend server parolni tekshiradi
