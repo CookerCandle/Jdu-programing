@@ -1,0 +1,5 @@
+Brauzer → So‘rov yuboradi
+Server → So‘rovni qayta ishlaydi
+Server → Ma’lumotlar bazasidan malumot oladi
+Server → Javob qaytaradi
+Brauzer → Foydalanuvchiga ko‘rsatadi
