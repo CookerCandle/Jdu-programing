@@ -1,0 +1,4 @@
+1. Ma’lumotlar bazasi deganda nimani tushunasiz?
+Ma’lumotlar bazasi (DB) — bu ma’lumotlarni tartiblangan holda saqlash, 
+ularni boshqarish va kerakli vaqtda tezkor izlab topish imkonini beradigan tizimdir. 
+Masalan: MySQL

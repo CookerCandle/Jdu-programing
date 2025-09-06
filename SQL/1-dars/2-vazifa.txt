@@ -1,0 +1,10 @@
+2. Relyatsion ma’lumotlar bazasini tushuntirib bering.
+Relyatsion ma’lumotlar bazasi — bu ma’lumotlar jadval (table) ko‘rinishida saqlanadigan baza turidir.
+Har bir jadval satrlar (row) va ustunlardan (column) tashkil topadi.
+Jadvallar orasida aloqalar (relationship) mavjud bo‘lib, ular bir-biriga kalitlar (keys) orqali ulanadi.
+
+Primary key (asosiy kalit) — jadvaldagi yozuvlarni noyob aniqlovchi ustun.
+
+Foreign key (tashqi kalit) — boshqa jadvaldagi primary key ga murojaat qiluvchi ustun.
+
+Masalan: Talabalar jadvali va Guruhlar jadvali bo‘lishi mumkin. Har bir talaba ma’lum bir guruhga tegishli bo‘ladi.
