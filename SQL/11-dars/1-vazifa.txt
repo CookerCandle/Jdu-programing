@@ -1,0 +1,7 @@
+VIEW bu bir nechta tablitsadan olingan malumotla uchun aloxida tablitsa. 
+u har sorovda yangitdan yaratilinaladi
+
+CREATE VIEW view_name AS
+SELECT column1, column2, ...
+FROM table_name
+WHERE condition;
