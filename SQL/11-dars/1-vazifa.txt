@@ -1,5 +1,5 @@
 VIEW bu bir nechta tablitsadan olingan malumotla uchun aloxida virtual tablitsa. 
-u ozida malumot oida malumot saqlamidi select yordamida olingan malumotlarni korsatadi.
+u ozida malumot saqlamidi select yordamida olingan malumotlarni korsatadi.
 
 CREATE VIEW view_name AS
 SELECT column1, column2, ...
