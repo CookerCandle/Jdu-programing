@@ -8,7 +8,7 @@ int main(void) {
     scanf("%s", input_string);
 
     while (input_string[lenght] != '\0') {
-        lenght++
+        lenght++;
     }
 
     printf("Lenght of the string: %d\n", lenght);
