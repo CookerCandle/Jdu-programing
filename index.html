@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Copy Cheat Script</title>
+    <style>
+        body {
+            background-color: #121212;
+            color: #e0e0e0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+        h2 { margin-bottom: 20px; font-weight: normal; color: #888; }
+        
+        button {
+            background-color: #2e7d32;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 18px;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: all 0.2s;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+            font-weight: bold;
+        }
+        button:hover { background-color: #388e3c; transform: translateY(-2px); }
+        button:active { transform: translateY(0); }
+
+        #status {
+            margin-top: 15px;
+            height: 20px;
+            color: #4caf50;
+            font-size: 14px;
+            opacity: 0;
+            transition: opacity 0.5s;
+        }
+
+        textarea {
+            width: 1px;
+            height: 1px;
+            opacity: 0;
+            position: absolute;
+            z-index: -1;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Инструмент для теста</h2>
+    <button onclick="copyScript()">СКОПИРОВАТЬ СКРИПТ</button>
+    <div id="status">Скопировано в буфер обмена!</div>
+
+    <textarea id="scriptSource">
+(async function() {
+    try {
+        console.clear();
+        console.log("👻");
+
+        const style = document.createElement('style');
+        style.innerHTML = `
+            * { -webkit-user-select: text !important; user-select: text !important; }
+            ::selection { background: rgba(0, 0, 0, 0.08) !important; color: inherit !important; }
+            #cheat-hint {
+                position: fixed; bottom: 10px; left: 10px;
+                background: transparent; color: #aaaaaa;
+                padding: 0; font-family: sans-serif, Arial; font-size: 11px;
+                z-index: 999999; display: none; pointer-events: none;
+                max-width: 600px; text-shadow: 1px 1px 0 #fff;
+            }
+        `;
+        document.head.appendChild(style);
+        window.addEventListener('selectstart', (e) => e.stopPropagation(), true);
+
+        const hint = document.createElement('div');
+        hint.id = "cheat-hint";
+        document.body.appendChild(hint);
+
+        let data = null;
+        try {
+            const script = Array.from(document.querySelectorAll('script')).find(s => s.innerText.includes('quizJson = "'));
+            if (!script) throw new Error("Скрипт базы не найден");
+            const raw = script.innerText.split('quizJson = "')[1].split('";')[0];
+            const bytes = Uint8Array.from(atob(raw), c => c.charCodeAt(0));
+            const stream = new Response(bytes).body.pipeThrough(new DecompressionStream("deflate"));
+            const jsonText = await new Response(stream).text();
+            data = JSON.parse(jsonText);
+            data = data.q || data.questions || (Array.isArray(data) ? data : []);
+            console.log("✅" + data.length);
+        } catch (err) { console.error(err); }
+
+        const cleanText = (str) => {
+            if (!str) return "";
+            return str.replace(/<[^>]*>/g, " ").replace(/&nbsp;/g, " ")
+                .replace(/[\u2018\u2019\u201C\u201D`]/g, "'")
+                .replace(/\s+/g, " ").trim().toLowerCase();
+        };
+
+        window.onkeydown = (e) => {
+            if (e.ctrlKey) {
+                const selection = window.getSelection().toString();
+                if (!selection || selection.length < 2) return;
+                const searchStr = cleanText(selection);
+                const found = data.find(q => cleanText(q.d).includes(searchStr));
+                if (found) {
+                    const correctAnsObj = found.a.find(ans => ans.c === true);
+                    if (correctAnsObj) {
+                        let answerText = correctAnsObj.t.replace(/<[^>]*>/g, "").replace(/&apos;/g, "'").trim();
+                        if (answerText.length > 100) answerText = answerText.substring(0, 97) + "...";
+                        hint.innerText = answerText;
+                        hint.style.display = 'block';
+                    }
+                }
+            }
+        };
+
+        window.onkeyup = (e) => {
+            if (e.key === "Control") {
+                hint.style.display = 'none';
+                window.getSelection().removeAllRanges();
+            }
+        };
+    } catch (e) { console.error(e); }
+})();
+    </textarea>
+
+    <script>
+        function copyScript() {
+            const copyText = document.getElementById("scriptSource");
+            
+            // Используем Clipboard API
+            navigator.clipboard.writeText(copyText.value).then(() => {
+                showStatus();
+            }).catch(err => {
+                // Фоллбэк для старых браузеров
+                copyText.select();
+                document.execCommand("copy");
+                showStatus();
+            });
+        }
+
+        function showStatus() {
+            const status = document.getElementById("status");
+            status.style.opacity = "1";
+            setTimeout(() => {
+                status.style.opacity = "0";
+            }, 2000);
+        }
+    </script>
+</body>
+</html>
