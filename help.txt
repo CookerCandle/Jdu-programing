@@ -1,0 +1,2 @@
+laravel new <project-name> # создание нового проекта
+
