@@ -1,2 +1,13 @@
 laravel new <project-name> # создание нового проекта
 
+composer install # для установки зависимостей после склонирования
+npm i # установка библиотек nodejs
+
+database:
+CREATE DATABASE j_larvel_db;
+CREATE USER 'j_laravel_user'@'localhost' IDENTIFIED BY 'j_laravel';
+GRANT ALL PRIVILEGES ON j_laravel_db.* TO 'j_laravel_user'@'localhost';
+FLUSH PRIVILEGES;
+
+
+
