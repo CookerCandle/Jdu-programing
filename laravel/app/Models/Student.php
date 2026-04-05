@@ -3,17 +3,11 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Student extends Model {
 
-    public static function all($columns = ['*']) {
-        return [
-            ['id' => 1, 'name' => 'John Doe', 'email' => 'john@example.com'],
-            ['id' => 2, 'name' => 'Jane Smith', 'email' => 'jane@example.com'],
-            ['id' => 3, 'name' => 'Bob Johnson', 'email' => 'bob@example.com'],
-            ['id' => 4, 'name' => 'Alice Williams', 'email' => 'alice@example.com']
-        ];
-    }
+    use HasFactory;
 
     public static function find($id, $columns = ['*']) {
         $students = self::all();
