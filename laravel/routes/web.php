@@ -35,3 +35,9 @@ Route::get('/users/{id}', function ($id) {
         return response()->json(['message' => 'User not found'], 404);
     }
 })->name('user');
+
+Route::get('/students', function () {
+    $students = Student::paginate(6);
+    
+    return view('students', compact('students'));
+})->name('students');
