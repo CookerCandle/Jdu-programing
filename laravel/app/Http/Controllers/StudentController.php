@@ -7,9 +7,20 @@ use Illuminate\Http\Request;
 
 class StudentController extends Controller
 {
+    public function index()
+    {
+        $students = Student::paginate(6);
+        return view('students.index', compact('students'));
+    }
+
     public function create()
     {
         return view('students.create');
+    }
+
+    public function show(Student $student)
+    {
+        return view('students.show', compact('student'));
     }
 
     public function store(Request $request)
@@ -35,17 +46,6 @@ class StudentController extends Controller
 
         return redirect()->route('student', $student)->with('success', 'Студент успешно обновлен!');
                  
-    }
-
-    public function index()
-    {
-        $students = Student::paginate(6);
-        return view('students.index', compact('students'));
-    }
-
-    public function show(Student $student)
-    {
-        return view('students.show', compact('student'));
     }
 
     public function destroy(Student $student)
