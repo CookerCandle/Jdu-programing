@@ -16,8 +16,8 @@ class StudentController extends Controller
     {
         // 1. Валидация данных
         $validated = $request->validate([
-            'name' => 'required|string|max:255',
-            'lastname' => 'required|string|max:255',
+            'name' => 'required|string|min:3|max:255',
+            'lastname' => 'required|string|min:5|max:255',
         ]);
 
         // 2. Создание записи
