@@ -24,8 +24,8 @@
                         <a href="{{ url('/contact') }}" class="rounded-md px-3 py-2 text-sm font-medium {{ request()->is('contact') ? 'bg-gray-950/50 text-white' : 'text-gray-300 hover:bg-white/5 hover:text-white' }}">Contact</a>
                         <a href="{{ url('/services') }}" class="rounded-md px-3 py-2 text-sm font-medium {{ request()->is('services') ? 'bg-gray-950/50 text-white' : 'text-gray-300 hover:bg-white/5 hover:text-white' }}">Services</a>
                         <a href="{{ url('/blog') }}" class="rounded-md px-3 py-2 text-sm font-medium {{ request()->is('blog') ? 'bg-gray-950/50 text-white' : 'text-gray-300 hover:bg-white/5 hover:text-white' }}">Blog</a>
-                        <a href="{{ url('/users') }}" class="rounded-md px-3 py-2 text-sm font-medium {{ request()->is('users') ? 'bg-gray-950/50 text-white' : 'text-gray-300 hover:bg-white/5 hover:text-white' }}">Users</a>
-                        <a href="{{ url('/students/create') }}" class="rounded-md px-3 py-2 text-sm font-medium {{ request()->is('students.create') ? 'bg-gray-950/50 text-white' : 'text-gray-300 hover:bg-white/5 hover:text-white' }}">Add Student</a>
+                        <a href="{{ url('/students') }}" class="rounded-md px-3 py-2 text-sm font-medium {{ request()->is('students') ? 'bg-gray-950/50 text-white' : 'text-gray-300 hover:bg-white/5 hover:text-white' }}">Students</a>
+                        <a href="{{ url('/students/create') }}" class="rounded-md px-3 py-2 text-sm font-medium {{ request()->is('students/create') ? 'bg-gray-950/50 text-white' : 'text-gray-300 hover:bg-white/5 hover:text-white' }}">Add Student</a>
                     </div>
                 </div>
             </div>
@@ -48,8 +48,8 @@
             <a href="{{ url('/contact') }}" class="block rounded-md px-3 py-2 text-base font-medium {{ request()->is('contact') ? 'bg-gray-950/50 text-white' : 'text-gray-300 hover:bg-white/5 hover:text-white' }}">Contact</a>
             <a href="{{ url('/services') }}" class="block rounded-md px-3 py-2 text-base font-medium {{ request()->is('services') ? 'bg-gray-950/50 text-white' : 'text-gray-300 hover:bg-white/5 hover:text-white' }}">Services</a>
             <a href="{{ url('/blog') }}" class="block rounded-md px-3 py-2 text-base font-medium {{ request()->is('blog') ? 'bg-gray-950/50 text-white' : 'text-gray-300 hover:bg-white/5 hover:text-white' }}">Blog</a>
-            <a href="{{ url('/users') }}" class="block rounded-md px-3 py-2 text-base font-medium {{ request()->is('users') ? 'bg-gray-950/50 text-white' : 'text-gray-300 hover:bg-white/5 hover:text-white' }}">Users</a>
-            <a href="{{ url('/students/create') }}" class="block rounded-md px-3 py-2 text-base font-medium {{ request()->is('students') ? 'bg-gray-950/50 text-white' : 'text-gray-300 hover:bg-white/5 hover:text-white' }}">Add Student</a>
+            <a href="{{ url('/students') }}" class="block rounded-md px-3 py-2 text-base font-medium {{ request()->is('students') ? 'bg-gray-950/50 text-white' : 'text-gray-300 hover:bg-white/5 hover:text-white' }}">Students</a>
+            <a href="{{ url('/students/create') }}" class="block rounded-md px-3 py-2 text-base font-medium {{ request()->is('students/create') ? 'bg-gray-950/50 text-white' : 'text-gray-300 hover:bg-white/5 hover:text-white' }}">Add Student</a>
         </div>
     </el-disclosure>
 </nav>

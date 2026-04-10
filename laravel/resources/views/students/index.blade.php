@@ -16,7 +16,7 @@
                 </div>
                 <div class="bg-gray-50 px-5 py-3 border-t border-gray-100 flex justify-between items-center">
                     <span class="text-xs font-medium text-indigo-600 uppercase tracking-wider">Студент</span>
-                    <a href="{{ route('user', $student->id) }}" class="text-sm text-gray-600 hover:text-indigo-600">Профиль →</a>
+                    <a href="{{ route('student', $student->id) }}" class="text-sm text-gray-600 hover:text-indigo-600">Профиль →</a>
                 </div>
             </div>
         @endforeach

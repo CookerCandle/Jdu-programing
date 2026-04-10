@@ -25,20 +25,10 @@ Route::get('/blog', function () {
     return view('blog');
 })->name('blog');
 
-Route::get('/users', function () {
-    $students = Student::paginate(6);
-    
-    return view('users', compact('students'));
-})->name('users');
-
-Route::get('/users/{id}', function ($id) {
-    $user = Student::find($id);
-    if ($user) {
-        return view('user', ['user' => $user]);
-    } else {
-        return response()->json(['message' => 'User not found'], 404);
-    }
-})->name('user');
-
+// Students routes
+Route::get('/students', [StudentController::class, 'index'])->name('students');
 Route::get('/students/create', [StudentController::class, 'create'])->name('students.create');
-Route::post('/students', [StudentController::class, 'store'])->name('students.store');
+Route::post('/student', [StudentController::class, 'store'])->name('students.store');
+Route::put('/students/update/{student}', [StudentController::class, 'update'])->name('students.update');
+Route::get('/student/{student}', [StudentController::class, 'show'])->name('student');
+Route::delete('/students/delete/{student}', [StudentController::class, 'destroy'])->name('students.destroy');
