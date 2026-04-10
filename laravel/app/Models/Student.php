@@ -9,9 +9,10 @@ class Student extends Model {
 
     use HasFactory;
 
-    public static function find($id, $columns = ['*']) {
-        $students = self::all();
-        return collect($students)->firstWhere('id', $id) ?? null;
-    }
+    protected $fillable = [
+        'name',
+        'lastname',
+    ];
+
 }
 

@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Models\Student;
 
+use App\Http\Controllers\StudentController;
+
 Route::get('/', function () {
     return view('hello');
 })->name('hello');
@@ -24,7 +26,9 @@ Route::get('/blog', function () {
 })->name('blog');
 
 Route::get('/users', function () {
-    return view('users', ['users' => Student::all()]);
+    $students = Student::paginate(6);
+    
+    return view('users', compact('students'));
 })->name('users');
 
 Route::get('/users/{id}', function ($id) {
@@ -36,8 +40,5 @@ Route::get('/users/{id}', function ($id) {
     }
 })->name('user');
 
-Route::get('/students', function () {
-    $students = Student::paginate(6);
-    
-    return view('students', compact('students'));
-})->name('students');
+Route::get('/students/create', [StudentController::class, 'create'])->name('students.create');
+Route::post('/students', [StudentController::class, 'store'])->name('students.store');
