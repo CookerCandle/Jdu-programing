@@ -1,0 +1,10 @@
+1. SOLID bizga boshidan toza kod yozishga yordam beradgon prinsp keyinchalik 
+appni kengaytirishda va testda otqazishda hatoliklar bolmasligi uchun
+2. SRP (single repository prinsp) bu bitta class faqat oz vazifasini bajarishi kerak degan prinsp
+bu degani Student klasida pdf generatsiyasini qilmasdan alohida klassda qilish degani
+bu nimaga kerak? uni masala Student klasida malumot turi ozgarganida pdf generatsiyasini logikasini ozgartirmaslik uchin qollaniladi
+3. OCP (open closed prinsp) bu prinsp bizga ochiq va yopiq metodita ishlani aytadi yani
+Student klasiga kontrakt tolovini hisoblash logikasini shu klasni ichida emas bishqa klass yordamida 
+kengaytirish misol student universitetda ochno oqidi va kontrak tolovini hisoblaganda 6000$ chiqdi
+boshqa student zaochno oqidi va uni kontraktini hisoblaganda 4000$ chiqdi. tasavur qilamiz agar yana bitta turdagi talaba qoshilsachi
+Student klasini if else ni ozgartirish kerak boladi
