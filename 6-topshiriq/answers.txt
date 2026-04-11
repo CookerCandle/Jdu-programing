@@ -1,0 +1,12 @@
+1. Entity-Relationship Diagram malumotlar bazasini chizilgan korinishi
+2. UML va ERD farqi shundaki UMLga metod va boglanishlari yoziladi ERDda esa (1:1, 1:N, M:N)
+3. 
+    Sinxron —►
+    Asinxron —>
+    Javob <--
+    Yaratish <<create>>
+    Ochirish X
+    Ozini chaqirish (strelka ozidan chiqib oziga korsatish)
+4. Digrammada foydlanuvchi bankdan kredit olish sxemasi chizilgan
+birinchi navbatda kvotaga murojat qilinvoti u yerda maqul takliflarga
+murojat qilinib korsaltilvoti va bank sistemasiga yonaltirilvoti
