@@ -1,0 +1,15 @@
+1. LSP (Liskov Substitution Principle) bu prinsip bizga kod yozayotganda va uni ota klasidan nasledstvo oganimizda 
+ota klasni logikasini ozgartirmasdan undan foydalanishimiz kerakligini bildiradi
+misol uchun ordak klasidan rezina ordak klasini yasasak va unga suzishi uchun batareykalar kerak bolsa, bu LSP prinsipiga zid keladi
+
+2. ISP (Interface Segregation Principle) bu prinsip bizga kod yozayotganda monolit interfeyslar yozmaslik kerakligini bildiradi
+masalan MACHINE klass yozib undan printer scaner yoki fax ni yozsak boladi, lekin oddiy printer uchun skaner metodi bizga kerak emas
+bu ISP prinsipiga zid keladi, chunki bizga printer uchun skaner metodi kerak emas va bu kodimizni murakkablashtiradi
+yechim aloxida interfeyslar yozish kerak masalan PRINTER interfeysiga faqat printer uchun kerakli metodlarni yozish va SCANNER interfeysiga faqat skaner uchun kerakli metodlarni yozish kerak
+
+3. DIP (Dependency Inversion Principle) bu prinsip bizga kod yozayotganda yuqori darajadagi modullar past darajadagi modullarga bog'lanmasligi kerakligini bildiradi
+masalan sms yuborish uchun bizda SERVICE klassi  bor va sms yuborish uchun sms obyektini yaratamiz, bu DIP prinsipiga zid keladi, chunki SERVICE klassi sms obyektiga bog'lanadi
+va biz email yuborish uchun ham SERVICE klassidan foydalanmoqchi bo'lsak, bu bizga qiyinchilik tug'diradi
+yechim esa bizga INTERFACE yozish kerak, masalan NOTIFICATION interfeysini yozib unda send metodini yozamiz va SERVICE klassi bu interfeysga bog'lanadi, 
+va sms va email klaslari bu interfeysni implementatsiya qiladi
+
