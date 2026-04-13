@@ -1,0 +1,12 @@
+1. Structural design patterns bu sistemani tashkil qilayotganda keyingi ozgarishlarni kodga kamroq ta'sir qiladigan tarzda tashkil qilish uchun ishlatiladi
+turlari:
+    Adapter (moslama)
+    Facade (fasad)
+    Decorator (bezash)
+    Proxy (vakil)
+
+2. Adapter dizaynida bir tizimning interfeysini boshqa tizimga moslashtirish uchun ishlatiladi
+misol amerika va evropa elektr rozetkalari, adapter yordamida amerika qurilmasini evropa rozetkasiga ulash mumkin
+
+3. Decorator dizaynida mavjud obyektga yangi xususiyatlar qo'shish uchun ishlatiladi, lekin obyektning o'zini o'zgartirmaydi
+misol pizza ustiga qo'shimcha ingredientlar qo'shish, pizza o'zgarishsiz qoladi, lekin yangi ta'mga ega bo'ladi
