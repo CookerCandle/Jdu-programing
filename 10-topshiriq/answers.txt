@@ -1,0 +1,16 @@
+1.Design Patterns bu dasturiy muamolarni yechish uchun bolgan tayyor yechimlar yoplamidir
+masalan velosiped qayta kashf etmasdan oldin mavjud bo'lgan dizayn naqshlarini ishlatishi mumkin
+
+2. 
+    Singletone (bilik) 
+    Factory (fabrika)
+    Adapter (moslama)
+    Facade (fasad)
+    Observer (kuzatuvchi)
+    Strategy (strategiya)
+
+3. Singletone dizaynda sistemada faqat bitta obyekt yaratiladi 
+misol Davlat prezidenti, bir vaqtning o'zida faqat bitta prezident bo'lishi mumkin
+
+4. Factory dizaynida obyekt qolda yaratilmaydi, balki maxsus metod yordamida yaratiladi
+misol pizza zakaz berish tizimi, qanday pizza hohlasangiz osha pizza chiqadi, uni tayyorlanish sizga qiziq emas
