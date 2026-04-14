@@ -1,0 +1,6 @@
+1. testlash bu dasturimiz biz hoxlaganday ishlayaptimi yoki yo'qmi tekshirish jarayonidir.
+
+2. Unit testlash bu dasturimizning kichik qismlarini alohida tekshirish jarayonidir.
+
+3. Unit test yozayotganda pytest kutubxonasidan foydalanishimiz mumkin.
+
