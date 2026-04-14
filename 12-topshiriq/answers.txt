@@ -1,0 +1,20 @@
+1. behaviour design patterns bu dasturlashda bolgan tayyor retsseptlar bolib 
+ular obyektlarga tez va samarali ishlash imkonini beradi
+turlari:
+    chain of responsibility pattern
+    command pattern
+    interpreter pattern
+    iterator pattern
+    mediator pattern
+    memento pattern
+    observer pattern
+    state pattern
+    strategy pattern
+    template method pattern
+    visitor pattern
+
+2. Observer patterni bu bit obyektning holati ozgarishini kuzatib borish va javob berish uchun ishlatilaadi
+masalan youtube da yangi video chiqsa obunachilarga xabar berish
+
+3. Strategy patterni bu bir vazifani bir nechta yollar bilan bajarish imkonini beruvchi pattern
+masalan navigator bu yerda biz manzilimizga borish uchun bir qancha usullarni tanlashimiz mumkin: piyoda, mashina, velosiped va hokazo
