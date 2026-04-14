@@ -1,0 +1,3 @@
+1. chunki xatolik ustiga yozilgan kod keyinchalik juda katta muammolar keltirishi mumkun
+misil uy qurilishida bitta gishtni xato terib qoysak uni xozir bartaraf etish 5-10 daqiqa vaqt oladi, 
+lekin keyinchalik bu xatolik uy buzilishiga olib kelishi mumkun
