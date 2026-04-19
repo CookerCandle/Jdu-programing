@@ -13,6 +13,8 @@ use App\Mail\StudentPosted;
 use App\Mail\StudentUpdated;
 use App\Mail\StudentDeleted;
 
+use App\Jobs\LogStudentAction;
+
 class StudentController extends Controller
 {
     public function index()
@@ -44,6 +46,8 @@ class StudentController extends Controller
 
         Student::create($data);
 
+        LogStudentAction::dispatch($data['firstname'], 'created');
+
         Mail::to($request->user())->send(new StudentPosted($data['firstname']));
 
         return redirect()->route('students.create')->with('success', 'Student created successfully.');
@@ -62,6 +66,8 @@ class StudentController extends Controller
         // Gate::authorize('update-student', $student);
         $this->authorize('update', $student);
 
+        LogStudentAction::dispatch($student->firstname, 'updated');
+
         $request->validate([
             'firstname' => 'required|string|min:2|max:255',
             'lastname' => 'required|string|min:2|max:255',
@@ -78,6 +84,8 @@ class StudentController extends Controller
     {
         $student = Student::findOrFail($id);
         $student->delete();
+
+        LogStudentAction::dispatch($student->firstname, 'deleted');
 
         Mail::to($request->user())->send(new StudentDeleted($student->firstname));
 
