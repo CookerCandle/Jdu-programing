@@ -4,7 +4,25 @@
             {{ __('Teachers') }}
         </h2>
     </x-slot>
-
+<div class="flex justify-center my-6 px-4">
+    <form action="{{ route('teachers.index') }}" method="GET" class="w-full max-w-md flex gap-2">
+        <input 
+            type="text" 
+            name="search" 
+            value="{{ request('search') }}"
+            placeholder="Поиск учителя..." 
+            class="w-full px-4 py-2.5 rounded-xl border border-gray-200 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition-all"
+        >
+        <button type="submit" class="px-6 py-2.5 bg-indigo-600 text-white font-semibold rounded-xl hover:bg-indigo-700 transition-colors">
+            Найти
+        </button>
+        @if(request('search'))
+            <a href="{{ route('teachers.index') }}" class="px-4 py-2.5 bg-gray-100 text-gray-600 font-semibold rounded-xl hover:bg-gray-200 transition-colors">
+                ✕
+            </a>
+        @endif
+    </form>
+</div>
 <div class=" grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-4">
     @foreach($teachers as $teacher)
     <div class="group bg-white rounded-2xl shadow-sm border border-gray-100 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 overflow-hidden">
