@@ -20,6 +20,7 @@ class StudentFactory extends Factory
         return [
             'firstname' => $this->faker->firstName(),
             'lastname' => $this->faker->lastName(),
+            'user_id' => \App\Models\User::factory(),
         ];
     }
 }

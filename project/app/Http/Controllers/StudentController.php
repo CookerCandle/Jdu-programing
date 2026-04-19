@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use App\Models\Student;
 
+use Illuminate\Support\Facades\Gate;
+
 class StudentController extends Controller
 {
     public function index()
@@ -32,7 +34,10 @@ class StudentController extends Controller
             'lastname' => 'required|string|min:2|max:255',
         ]);
 
-        Student::create($request->all());
+        $data = $request->all();
+        $data['user_id'] = auth()->id();
+
+        Student::create($data);
 
         return redirect()->route('students.create')->with('success', 'Student created successfully.');
     }
@@ -45,12 +50,16 @@ class StudentController extends Controller
 
     public function update(Request $request, $id)
     {
+        $student = Student::findOrFail($id);
+
+        // Gate::authorize('update-student', $student);
+        $this->authorize('update', $student);
+
         $request->validate([
             'firstname' => 'required|string|min:2|max:255',
             'lastname' => 'required|string|min:2|max:255',
         ]);
 
-        $student = Student::findOrFail($id);
         $student->update($request->all());
 
         return redirect()->route('students.edit', $id)->with('success', 'Student updated successfully.');
