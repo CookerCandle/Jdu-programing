@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\TeacherController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -33,5 +34,7 @@ Route::middleware('auth')->group(function () {
 Route::middleware(['auth', 'is_admin'])->group(function () {
     Route::get('/admin', [AdminController::class, 'index'])->name('admin.panel');
 });
+
+Route::resource('teachers', TeacherController::class)->middleware('auth');
 
 require __DIR__.'/auth.php';
