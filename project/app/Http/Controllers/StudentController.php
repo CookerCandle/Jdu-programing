@@ -8,6 +8,11 @@ use App\Models\Student;
 
 use Illuminate\Support\Facades\Gate;
 
+use Illuminate\Support\Facades\Mail;
+use App\Mail\StudentPosted;
+use App\Mail\StudentUpdated;
+use App\Mail\StudentDeleted;
+
 class StudentController extends Controller
 {
     public function index()
@@ -39,6 +44,8 @@ class StudentController extends Controller
 
         Student::create($data);
 
+        Mail::to($request->user())->send(new StudentPosted($data['firstname']));
+
         return redirect()->route('students.create')->with('success', 'Student created successfully.');
     }
 
@@ -62,13 +69,17 @@ class StudentController extends Controller
 
         $student->update($request->all());
 
+        Mail::to($request->user())->send(new StudentUpdated($student->firstname));
+
         return redirect()->route('students.edit', $id)->with('success', 'Student updated successfully.');
     }
 
-    public function destroy($id)
+    public function destroy(Request $request, $id)
     {
         $student = Student::findOrFail($id);
         $student->delete();
+
+        Mail::to($request->user())->send(new StudentDeleted($student->firstname));
 
         return redirect()->route('students.index')->with('success', 'Student deleted successfully.');
     }
